@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: >-
+  This Lambda function reads the Kinesis Firehose records as Input, decrypt the log records using KMS key, 
+  unzip the records and then categories the event type into S3 folder structure
+Parameters: 
+  BucketNamePrefix:
+    Type: String
+    Default: dastestbucket
+  KeyName:
+    Type: String
+
+Resources:
+  dasProcessor:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: .
+      Description: >-
+        An Amazon Kinesis Firehose stream processor that accesses the records in
+        the input and returns them with a processing status.  Use this processor
+        for any custom transformation logic.
+      MemorySize: 128
+      Timeout: 3
+      Policies:
+          - CloudWatchPutMetricPolicy: {}
+          - KMSDecryptPolicy:
+              KeyId: ${KeyName}
+          - S3WritePolicy:
+              BucketName: ${BucketNamePrefix}
