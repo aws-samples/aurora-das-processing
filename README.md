@@ -4,7 +4,7 @@ This Lambda function reads the Kinesis Firehose records as Input, decrypt the lo
 ## Getting started
 This can all be deployed with AWS SAM.
 
-$ sam build
+$ sam build  
 $ sam deploy --guided
 
 ## Security
