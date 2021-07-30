@@ -7,6 +7,8 @@ This can all be deployed with AWS SAM.
 $ sam build  
 $ sam deploy --guided
 
+See [Serverless Application Model (SAM)](https://github.com/aws/serverless-application-model/blob/master/HOWTO.md) HOWTO Guide for more details in how to get started.
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
