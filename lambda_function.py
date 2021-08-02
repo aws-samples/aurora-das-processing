@@ -3,7 +3,6 @@ from __future__ import print_function
 import json
 import boto3
 import base64
-import json
 import zlib
 import aws_encryption_sdk
 from aws_encryption_sdk import CommitmentPolicy
@@ -12,9 +11,10 @@ from aws_encryption_sdk.key_providers.raw import RawMasterKeyProvider
 from aws_encryption_sdk.identifiers import WrappingAlgorithm, EncryptionKeyType
 import datetime
 
-REGION_NAME = 'us-east-1'                    # us-east-1
-RESOURCE_ID = 'cluster-ABCD123456'
-BUCKET_NAME = 'dastestbucket'
+REGION_NAME = os.environ['region_name'] # 'us-east-1'
+RESOURCE_ID = os.environ['resource_id'] #'cluster-2VRZBI263EBXMYD3BQUFSIQ554'
+BUCKET_NAME = os.environ['bucket_name'] # 'dastestbucket'
+
 enc_client = aws_encryption_sdk.EncryptionSDKClient(commitment_policy=CommitmentPolicy.REQUIRE_ENCRYPT_ALLOW_DECRYPT)
 kms = boto3.client('kms', region_name=REGION_NAME)
 s3 = boto3.client('s3')
