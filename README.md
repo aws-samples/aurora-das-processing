@@ -11,8 +11,8 @@ This Lambda function reads the Kinesis Firehose records as Input, decrypt the lo
 
 ## Requirements 
 * AWS CLI already configured with Administrator permission
-* SAM CLI - [Install the SAM CLI]<https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html>
-* docker [Install Docker community edition]<https://hub.docker.com/search/?type=edition&offering=community>
+* SAM CLI - [Install the SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+* docker [Install Docker community edition](https://hub.docker.com/search/?type=edition&offering=community)
 * Python3.8 installed
 
 ## Getting started
