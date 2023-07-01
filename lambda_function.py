@@ -109,7 +109,7 @@ def processDASRecord(rID, rec):
                     s3suffix = '/' + str(todays_date.year) + '/' + str(todays_date.month) + '/' + str(todays_date.day) + '/' + rID + '.txt' 
                     s3.put_object(Body=json.dumps(dbEvent, ensure_ascii=False), Bucket=BUCKET_NAME, Key = 'parsed/'+ eventType + s3suffix )
 
-               retObj.append(dbEvent)
+            retObj.append(dbEvent)
 
         except Exception as e:
             print (e)
