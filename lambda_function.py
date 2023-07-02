@@ -1,5 +1,6 @@
 #This Lambda function reads the Kinesis Firehose records as Input, decrypt the log records using KMS key, unzip the records and then categories the event type into S3 folder structure. 
 from __future__ import print_function
+import os
 import json
 import boto3
 import base64
